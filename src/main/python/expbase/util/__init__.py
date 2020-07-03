@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -32,7 +31,9 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-import setuptools
+"""This package defines various utility classes/functions that implement functionality commonly needed for machine
+learning experiments.
+"""
 
 
 __author__ = "Patrick Hohenecker"
@@ -43,36 +44,3 @@ __date__ = "25 Jun 2020"
 __maintainer__ = "Patrick Hohenecker"
 __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
-
-
-# read the long description from the README file
-long_description = open("README.md").read()
-
-
-setuptools.setup(
-        author="Patrick Hohenecker",
-        author_email="mail@paho.at",
-        classifiers=[
-                "Programming Language :: Python :: 3.7",
-                "Programming Language :: Python :: 3.8"
-        ],
-        copyright="Copyright (c), 2020 Patrick Hohenecker",
-        data_files=[
-                (".", ["LICENSE", "README.md"])
-        ],
-        description="A Python framework that implements a commonly used boilerplate for machine learning experiments.",
-        install_requires=[
-                "argmagiq>=0.1.0",
-                "insanity>=2017.1",
-                "streamtologger>=2017.1"
-        ],
-        license="BSD-2-Clause",
-        long_description=long_description,
-        long_description_content_type="text/markdown",
-        name="expbase",
-        package_dir={"": "src/main/python"},
-        packages=setuptools.find_packages("src/main/python"),
-        python_requires=">=3.7",
-        url="https://github.com/phohenecker/exp-base",
-        version="0.1.0"
-)
