@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -32,7 +31,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-import setuptools
+"""Helper functions for printing section headers and endings."""
 
 
 __author__ = "Patrick Hohenecker"
@@ -45,34 +44,56 @@ __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
 
 
-# read the long description from the README file
-long_description = open("README.md").read()
+def print_end(title: str, level: int = 0, width: int = 160) -> None:
+    """Prints an end of a section.
+
+    This function is the counterpart of the function :func:`print_header`.
+
+    Args:
+        title (str): The title of the section that the end is printed for. Notice that ``"End of"`` is prepended to the
+            provided ``title``.
+        level (int): Specifies the level of the section that is ended. Notice that this function distinguishes the
+            levels 0 (highest), 1, and everything else (lowest level) only.
+        width (int, optional): The width of the end to print.
+    """
+
+    if level == 0:
+        title_pattern = "{:#>%d} ########" % (width - 9)
+        print(title_pattern.format(" END OF " + str(title).upper()))
+    elif level == 1:
+        title_pattern = "{:/>%d} ////////" % (width - 9)
+        print(title_pattern.format(" END OF " + str(title).upper()))
+    else:
+        title_pattern = "{:->%d} --------" % (width - 9)
+        print(title_pattern.format(" END OF " + str(title).upper()))
+
+    # add final blank line
+    print()
 
 
-setuptools.setup(
-        author="Patrick Hohenecker",
-        author_email="mail@paho.at",
-        classifiers=[
-                "Programming Language :: Python :: 3.7",
-                "Programming Language :: Python :: 3.8"
-        ],
-        copyright="Copyright (c), 2020 Patrick Hohenecker",
-        data_files=[
-                (".", ["LICENSE", "README.md"])
-        ],
-        description="A Python framework that implements a commonly used boilerplate for machine learning experiments.",
-        install_requires=[
-                "argmagiq>=0.1.0",
-                "insanity>=2017.1",
-                "streamtologger>=2017.1"
-        ],
-        license="BSD-2-Clause",
-        long_description=long_description,
-        long_description_content_type="text/markdown",
-        name="expbase",
-        package_dir={"": "src/main/python"},
-        packages=setuptools.find_packages("src/main/python"),
-        python_requires=">=3.7",
-        url="https://github.com/phohenecker/exp-base",
-        version="0.1.0"
-)
+def print_header(title: str, level: int = 0, width: int = 160) -> None:
+    """Prints a header for the section with the provided title.
+
+    This function is the counterpart of the function :func:`print_end`.
+
+    Args:
+        title (str): The title to print.
+        level (int): Specifies the level of the section that the header is printed for. Notice that this function
+            distinguishes the levels 0 (highest), 1, and everything else (lowest level) only.
+        width (int, optional): The width of the header to print.
+    """
+
+    if level == 0:
+        title_pattern = "#  {:%d}  #" % (width - 6)
+        print("#" * width)
+        print(title_pattern.format(str(title).upper()))
+        print("#" * width)
+    elif level == 1:
+        title_pattern = "//////// {:/<%d}" % (width - 9)
+        print(title_pattern.format(str(title).upper() + " "))
+    else:
+        title_pattern = "-------- {:-<%d}" % (width - 9)
+        print(title_pattern.format(str(title).upper() + " "))
+
+    # add final blank line
+    print()
