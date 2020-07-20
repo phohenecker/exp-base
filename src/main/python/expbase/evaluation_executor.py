@@ -84,7 +84,7 @@ class EvaluationExecutor(metaclass=abc.ABCMeta):
 
         # sanitize args
         insanity.sanitize_type("conf", conf, base_config.BaseConfig)
-        ckpt = str(ckpt)
+        insanity.sanitize_type("ckpt", ckpt, str, none_allowed=True)
 
         # store args
         self._ckpt = ckpt
