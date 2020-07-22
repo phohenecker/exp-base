@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                                     #
 #   BSD 2-Clause License                                                              #
@@ -29,45 +31,16 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-
-#  author:   Patrick Hohenecker (patrick.hohenecker@gmx.at)
-#  version:  0.1.0-rc.1
-#  date:     22 Jul 2020
-
+"""This package defines various utility classes/functions that implement functionality commonly needed for machine
+learning experiments.
+"""
 
 
-### Python
-__pycache__/**
-*.py[cdo]
-*$py.class
-
-### Distribution / Packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-### Mac
-.DS_Store
-._*
-
-### IntelliJ IDEA / PyCharm
-.idea
-*.iml
-*.iws
-
-### Result Directories
-**/results/
+__author__ = "Patrick Hohenecker"
+__copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
+__license__ = "BSD-2-Clause"
+__version__ = "0.1.0-rc.1"
+__date__ = "22 Jul 2020"
+__maintainer__ = "Patrick Hohenecker"
+__email__ = "patrick.hohenecker@gmx.at"
+__status__ = "Development"

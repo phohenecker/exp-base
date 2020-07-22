@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                                     #
 #   BSD 2-Clause License                                                              #
@@ -29,45 +31,69 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-
-#  author:   Patrick Hohenecker (patrick.hohenecker@gmx.at)
-#  version:  0.1.0-rc.1
-#  date:     22 Jul 2020
+"""Helper functions for printing section headers and endings."""
 
 
+__author__ = "Patrick Hohenecker"
+__copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
+__license__ = "BSD-2-Clause"
+__version__ = "0.1.0-rc.1"
+__date__ = "22 Jul 2020"
+__maintainer__ = "Patrick Hohenecker"
+__email__ = "patrick.hohenecker@gmx.at"
+__status__ = "Development"
 
-### Python
-__pycache__/**
-*.py[cdo]
-*$py.class
 
-### Distribution / Packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+def print_end(title: str, level: int = 0, width: int = 160) -> None:
+    """Prints an end of a section.
 
-### Mac
-.DS_Store
-._*
+    This function is the counterpart of the function :func:`print_header`.
 
-### IntelliJ IDEA / PyCharm
-.idea
-*.iml
-*.iws
+    Args:
+        title (str): The title of the section that the end is printed for. Notice that ``"End of"`` is prepended to the
+            provided ``title``.
+        level (int): Specifies the level of the section that is ended. Notice that this function distinguishes the
+            levels 0 (highest), 1, and everything else (lowest level) only.
+        width (int, optional): The width of the end to print.
+    """
 
-### Result Directories
-**/results/
+    if level == 0:
+        title_pattern = "{:#>%d} ########" % (width - 9)
+        print(title_pattern.format(" END OF " + str(title).upper()))
+    elif level == 1:
+        title_pattern = "{:/>%d} ////////" % (width - 9)
+        print(title_pattern.format(" END OF " + str(title).upper()))
+    else:
+        title_pattern = "{:->%d} --------" % (width - 9)
+        print(title_pattern.format(" END OF " + str(title).upper()))
+
+    # add final blank line
+    print()
+
+
+def print_header(title: str, level: int = 0, width: int = 160) -> None:
+    """Prints a header for the section with the provided title.
+
+    This function is the counterpart of the function :func:`print_end`.
+
+    Args:
+        title (str): The title to print.
+        level (int): Specifies the level of the section that the header is printed for. Notice that this function
+            distinguishes the levels 0 (highest), 1, and everything else (lowest level) only.
+        width (int, optional): The width of the header to print.
+    """
+
+    if level == 0:
+        title_pattern = "#  {:%d}  #" % (width - 6)
+        print("#" * width)
+        print(title_pattern.format(str(title).upper()))
+        print("#" * width)
+    elif level == 1:
+        title_pattern = "//////// {:/<%d}" % (width - 9)
+        print(title_pattern.format(str(title).upper() + " "))
+    else:
+        title_pattern = "-------- {:-<%d}" % (width - 9)
+        print(title_pattern.format(str(title).upper() + " "))
+
+    # add final blank line
+    print()

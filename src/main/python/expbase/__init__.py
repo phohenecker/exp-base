@@ -34,11 +34,24 @@
 """A Python framework that implements a commonly used boilerplate for machine learning experiments."""
 
 
+from expbase.base_config import BaseConfig
+from expbase.evaluation_executor import EvaluationExecutor
+from expbase.experiment import Experiment
+from expbase.training_executor import TrainingExecutor
+from expbase.util.printing_tools import *
+from expbase.util.table import Table
+from expbase.util.timer import Timer
+
+
 __author__ = "Patrick Hohenecker"
 __copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
 __license__ = "BSD-2-Clause"
-__version__ = "0.1.0"
-__date__ = "25 Jun 2020"
+__version__ = "0.1.0-rc.1"
+__date__ = "22 Jul 2020"
 __maintainer__ = "Patrick Hohenecker"
 __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
+
+
+LOG_LINE_HEADER = "[{timestamp:%Y-%m-%d %H:%M:%S} - {level:5} ]  "
+"""str: A format string that specifies the beginning of each line in the created log files."""
