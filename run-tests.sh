@@ -33,8 +33,8 @@
 
 
 # author:   Patrick Hohenecker (patrick.hohenecker@gmx.at)
-# version:  0.1.0
-# date:     25 Jun 2020
+# version:  0.1.0-rc.1
+# date:     22 Jul 2020
 
 
 

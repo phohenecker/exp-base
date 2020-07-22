@@ -38,8 +38,8 @@ import setuptools
 __author__ = "Patrick Hohenecker"
 __copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
 __license__ = "BSD-2-Clause"
-__version__ = "0.1.0"
-__date__ = "25 Jun 2020"
+__version__ = "0.1.0-rc.1"
+__date__ = "22 Jul 2020"
 __maintainer__ = "Patrick Hohenecker"
 __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
@@ -74,5 +74,5 @@ setuptools.setup(
         packages=setuptools.find_packages("src/main/python"),
         python_requires=">=3.7",
         url="https://github.com/phohenecker/exp-base",
-        version="0.1.0"
+        version="0.1.0-rc.1"
 )
