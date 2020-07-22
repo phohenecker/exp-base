@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                                     #
 #   BSD 2-Clause License                                                              #
@@ -30,44 +32,12 @@
 
 
 
-#  author:   Patrick Hohenecker (patrick.hohenecker@gmx.at)
-#  version:  0.1.0
-#  date:     25 Jun 2020
+# author:   Patrick Hohenecker (patrick.hohenecker@gmx.at)
+# version:  0.1.0
+# date:     22 Jul 2020
 
 
+PYTHONPATH="$(pwd)/../../src/main/python:${PYTHONPATH}"
+export PYTHONPATH
 
-### Python
-__pycache__/**
-*.py[cdo]
-*$py.class
-
-### Distribution / Packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-### Mac
-.DS_Store
-._*
-
-### IntelliJ IDEA / PyCharm
-.idea
-*.iml
-*.iws
-
-### Result Directories
-**/results/
+python3 main.py "${@}"
