@@ -41,6 +41,9 @@ import streamtologger
 import expbase
 import expbase.base_config as base_config
 
+from typing import Generic
+from typing import TypeVar
+
 
 __author__ = "Patrick Hohenecker"
 __copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
@@ -52,7 +55,10 @@ __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
 
 
-class TrainingExecutor(metaclass=abc.ABCMeta):
+_Config = TypeVar("_Config", bound=base_config.BaseConfig)
+
+
+class TrainingExecutor(Generic[_Config], metaclass=abc.ABCMeta):
     """An abstract base class that has to be extended with code that implements the training procedure.
 
     This class defines only one public method, :meth:`run`, which first sets up the logging facilities and then
@@ -77,7 +83,7 @@ class TrainingExecutor(metaclass=abc.ABCMeta):
             ``TrainingExecutor``. This is a subclass of :class:`base_class.BaseClass`.
     """
 
-    def __init__(self, conf: base_config.BaseConfig, ckpt_queue: queues.Queue):
+    def __init__(self, conf: _Config, ckpt_queue: queues.Queue):
         """Creates a new instance of ``TrainingExecutor``.
 
         Args:

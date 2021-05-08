@@ -41,6 +41,9 @@ import streamtologger
 import expbase
 import expbase.base_config as base_config
 
+from typing import Generic
+from typing import TypeVar
+
 
 __author__ = "Patrick Hohenecker"
 __copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
@@ -52,7 +55,10 @@ __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
 
 
-class EvaluationExecutor(metaclass=abc.ABCMeta):
+_Config = TypeVar("_Config", bound=base_config.BaseConfig)
+
+
+class EvaluationExecutor(Generic[_Config], metaclass=abc.ABCMeta):
     """An abstract base class that has to be extended with the code that implements the evaluation procedure.
 
     This class defines only one public method, :meth:`run`, which first sets up the logging facilities, and then
@@ -71,7 +77,7 @@ class EvaluationExecutor(metaclass=abc.ABCMeta):
             ``EvaluationExecutor``. This is a subclass of :class:`base_class.BaseClass`.
     """
 
-    def __init__(self, conf: base_config.BaseConfig, ckpt: typing.Optional[str]):
+    def __init__(self, conf: _Config, ckpt: typing.Optional[str]):
         """Creates a new instance of ``EvaluationExecutor``.
 
         Args:
