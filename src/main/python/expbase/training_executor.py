@@ -4,7 +4,7 @@
 #                                                                                     #
 #   BSD 2-Clause License                                                              #
 #                                                                                     #
-#   Copyright (c) 2020, Patrick Hohenecker                                            #
+#   Copyright (c) 2021, Patrick Hohenecker                                            #
 #   All rights reserved.                                                              #
 #                                                                                     #
 #   Redistribution and use in source and binary forms, with or without                #
@@ -41,18 +41,24 @@ import streamtologger
 import expbase
 import expbase.base_config as base_config
 
+from typing import Generic
+from typing import TypeVar
+
 
 __author__ = "Patrick Hohenecker"
-__copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
+__copyright__ = "Copyright (c) 2021, Patrick Hohenecker"
 __license__ = "BSD-2-Clause"
-__version__ = "0.1.0-rc.1"
-__date__ = "22 Jul 2020"
+__version__ = "0.1.0"
+__date__ = "08 May 2021"
 __maintainer__ = "Patrick Hohenecker"
 __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
 
 
-class TrainingExecutor(metaclass=abc.ABCMeta):
+_Config = TypeVar("_Config", bound=base_config.BaseConfig)
+
+
+class TrainingExecutor(Generic[_Config], metaclass=abc.ABCMeta):
     """An abstract base class that has to be extended with code that implements the training procedure.
 
     This class defines only one public method, :meth:`run`, which first sets up the logging facilities and then
@@ -77,7 +83,7 @@ class TrainingExecutor(metaclass=abc.ABCMeta):
             ``TrainingExecutor``. This is a subclass of :class:`base_class.BaseClass`.
     """
 
-    def __init__(self, conf: base_config.BaseConfig, ckpt_queue: queues.Queue):
+    def __init__(self, conf: _Config, ckpt_queue: queues.Queue):
         """Creates a new instance of ``TrainingExecutor``.
 
         Args:
