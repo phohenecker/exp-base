@@ -5,7 +5,7 @@
 #                                                                                     #
 #   BSD 2-Clause License                                                              #
 #                                                                                     #
-#   Copyright (c) 2020, Patrick Hohenecker                                            #
+#   Copyright (c) 2021, Patrick Hohenecker                                            #
 #   All rights reserved.                                                              #
 #                                                                                     #
 #   Redistribution and use in source and binary forms, with or without                #
@@ -36,10 +36,10 @@ import setuptools
 
 
 __author__ = "Patrick Hohenecker"
-__copyright__ = "Copyright (c) 2020, Patrick Hohenecker"
+__copyright__ = "Copyright (c) 2021, Patrick Hohenecker"
 __license__ = "BSD-2-Clause"
-__version__ = "0.1.0-rc.1"
-__date__ = "22 Jul 2020"
+__version__ = "0.1.0"
+__date__ = "08 May 2021"
 __maintainer__ = "Patrick Hohenecker"
 __email__ = "patrick.hohenecker@gmx.at"
 __status__ = "Development"
@@ -56,7 +56,7 @@ setuptools.setup(
                 "Programming Language :: Python :: 3.7",
                 "Programming Language :: Python :: 3.8"
         ],
-        copyright="Copyright (c), 2020 Patrick Hohenecker",
+        copyright="Copyright (c), 2021 Patrick Hohenecker",
         data_files=[
                 (".", ["LICENSE", "README.md"])
         ],
@@ -74,5 +74,5 @@ setuptools.setup(
         packages=setuptools.find_packages("src/main/python"),
         python_requires=">=3.7",
         url="https://github.com/phohenecker/exp-base",
-        version="0.1.0-rc.1"
+        version="0.1.0"
 )
